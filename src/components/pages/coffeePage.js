@@ -13,13 +13,13 @@ export default class CoffeePage extends Component {
             <section className="shop">
                 <Container>
                     <Row>
-                        <div class="col-lg-4 offset-2">
-                            <img class="shop__girl" src={CoffeeGirl} alt="girl"></img>
+                        <div className="col-lg-4 offset-2">
+                            <img className="shop__girl" src={CoffeeGirl} alt="girl"></img>
                         </div>
-                        <div class="col-lg-4">
-                            <div class="title">About our beans</div>
-                            <img class="beanslogo" src={BeansLogoDark} alt="Beans logo"></img>
-                            <div class="shop__text">
+                        <div className="col-lg-4">
+                            <div className="title">About our beans</div>
+                            <img className="beanslogo" src={BeansLogoDark} alt="Beans logo"></img>
+                            <div className="shop__text">
                                     Extremity sweetness difficult behaviour he of. On disposal of as landlord horrible.
                                     <br></br><br></br>
                                     Afraid at highly months do things on at. Situation recommend objection do intention<br></br>
@@ -30,7 +30,7 @@ export default class CoffeePage extends Component {
                                 </div>
                         </div>
                     </Row>
-                    <div class="line"></div>
+                    <div className="line"></div>
                     <CoffeeFilter/>
                 </Container>
             </section>
