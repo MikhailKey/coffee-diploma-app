@@ -2,14 +2,15 @@ import React, {Component} from 'react';
 import {Container, Row} from 'reactstrap';
 import './coffeepage.sass'; 
 import CoffeeFilter from '../coffeeFilter';
-
+import {CoffeeHeader} from '../pages'
 import BeansLogoDark from '../../logo/Beans_logo_dark.svg';
 import CoffeeGirl from '../../img/coffee_girl.jpg';
 
 export default class CoffeePage extends Component {
     render() {
         return (
-            
+            <>
+            <CoffeeHeader/>
             <section className="shop">
                 <Container>
                     <Row>
@@ -34,6 +35,7 @@ export default class CoffeePage extends Component {
                     <CoffeeFilter/>
                 </Container>
             </section>
+            </>
         )
     }
 }

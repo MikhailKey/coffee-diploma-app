@@ -1,6 +1,7 @@
 import React from 'react';
 import Logo from '../../logo/Logo.svg';
 import {Row} from 'reactstrap';
+import {Link} from 'react-router-dom';
 
 import './header.sass'
 const AppHeader = () => {
@@ -10,15 +11,15 @@ const AppHeader = () => {
                     <header>
                         <ul className="header">
                             <li className="header__item">
-                                <a href="/">
+                                <Link to="/">
                                     <img src={Logo} alt="logo"></img>
-                                </a>
+                                </Link>
                             </li>
                             <li className="header__item">
-                                <a href="/">Our coffee</a>
+                                <Link to="/coffee">Our coffee</Link>
                             </li>
                             <li className="header__item">
-                                <a href="/">For your pleasure</a>
+                                <Link to="/pleasure">For your pleasure</Link>
                             </li>
                         </ul>
                     </header>

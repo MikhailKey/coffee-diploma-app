@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import {Row, Container} from 'reactstrap';
 import AppHeader from '../appHeader';
 import OurBest from '../ourBest'
+import {Link} from 'react-router-dom';
 import BeansLogo from '../../logo/Beans_logo.svg';
 import BeansLogoDark from '../../logo/Beans_logo_dark.svg';
 
@@ -19,7 +20,7 @@ export default class MainPage extends Component {
                                 <img className="beanslogo" src={BeansLogo} alt="Beans logo"></img>
                                 <div className="preview__subtitle">We makes every day full of energy and taste</div>
                                 <div className="preview__subtitle">Want to try our beans?</div>
-                                <a href="/" className="preview__btn">More</a>
+                                <Link to="/coffee" className="preview__btn">More</Link>
                             </div>
                     </Row>
                 </Container>
