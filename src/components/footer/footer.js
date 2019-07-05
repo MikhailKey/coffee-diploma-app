@@ -22,7 +22,7 @@ const Footer = () => {
                             <Link to="/coffee">Our coffee</Link>
                         </li>
                         <li className="footer__item">
-                            <Link to href="/pleasure">For your pleasure</Link>
+                            <Link to="/pleasure">For your pleasure</Link>
                         </li>
                     </ul>
                 </div>

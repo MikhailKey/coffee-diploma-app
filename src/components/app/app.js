@@ -1,10 +1,12 @@
-import React, {Component} from 'react';
+import React from 'react';
 import {MainPage, CoffeePage, PleasurePage} from '../pages';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Footer from '../footer';
+import WithCoffeeService from '../hoc';
 import './style.sass';
-export default class App extends Component {
-    render() {
+
+const App = ({CoffeeService}) => {
+    console.log(CoffeeService.getCoffeeItems());
         return (
             <>
             <Router>
@@ -18,4 +20,5 @@ export default class App extends Component {
             </>
         )
     }
-}
+
+export default WithCoffeeService()(App);

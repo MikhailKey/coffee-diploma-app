@@ -1,3 +1,3 @@
-import WithCoffeeService from './WithCoffeeService';
+import WithCoffeeService from './withCoffeeService';
 
 export default WithCoffeeService;
