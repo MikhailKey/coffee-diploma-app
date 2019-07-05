@@ -2,11 +2,11 @@ import React from 'react';
 import {MainPage, CoffeePage, PleasurePage} from '../pages';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Footer from '../footer';
-import WithCoffeeService from '../hoc';
+
 import './style.sass';
 
-const App = ({CoffeeService}) => {
-    console.log(CoffeeService.getCoffeeItems());
+const App = () => {
+
         return (
             <>
             <Router>
@@ -21,4 +21,4 @@ const App = ({CoffeeService}) => {
         )
     }
 
-export default WithCoffeeService()(App);
+export default App;

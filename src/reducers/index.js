@@ -1,13 +1,15 @@
 
 const initialState = {
-    bestList: []
+    bestSellers: [
+        
+    ]
 }
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'BEST_LIST_LOADED':
+        case 'BEST_SELLERS_LOADED':
             return {
-                bestList: action.payload    
+                bestSellers: action.payload    
             };
             default:
                 return state;

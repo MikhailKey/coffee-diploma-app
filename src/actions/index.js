@@ -1,9 +1,9 @@
-const bestListLoaded = (newList) => {
+const bestSellersLoaded = (newSellers) => {
     return {
-        type: 'BEST_LIST_LOADED',
-        payload: newList
+        type: 'BEST_SELLERS_LOADED',
+        payload: newSellers
     };
 };
 export {
-    bestListLoaded
+    bestSellersLoaded
 };
