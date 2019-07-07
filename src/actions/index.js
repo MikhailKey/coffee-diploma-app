@@ -4,6 +4,13 @@ const bestSellersLoaded = (newSellers) => {
         payload: newSellers
     };
 };
+const allCoffeeLoaded = (newCoffee) => {
+    return {
+        type: 'ALL_COFFEE_LOADED', 
+        payload: newCoffee
+    }
+}
 export {
-    bestSellersLoaded
+    bestSellersLoaded,
+    allCoffeeLoaded
 };

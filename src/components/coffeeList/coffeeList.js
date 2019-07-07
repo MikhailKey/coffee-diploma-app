@@ -1,60 +1,27 @@
 import React, {Component} from 'react';
 import {Row} from 'reactstrap';
-
-export default class CoffeeList extends Component {
+import CoffeeListItem from '../coffeeListItem';
+import {connect} from 'react-redux';
+import WithCoffeeService from '../hoc';
+import {allCoffeeLoaded} from '../../actions';
+import idGenerator from 'react-id-generator';
+class CoffeeList extends Component {
+    componentDidMount() {
+        const {CoffeeService} = this.props;
+        CoffeeService.getAllCoffee()
+        .then(res => this.props.allCoffeeLoaded(res)); 
+    }
     render() {
+        const {coffeeItems} = this.props;
         return(
             <Row>
-                <div class="col-lg-10 offset-lg-1">
-                    <div class="shop__wrapper">
-                        <div class="shop__item">
-                            <img src="https://www.sciencenews.org/sites/default/files/main/articles/100315_coffee_opener_NEW_0.jpg" alt="coffee"></img>
-                            <div class="shop__item-title">
-                                Solimo Coffee Beans 2kg
-                            </div>
-                            <div class="shop__item-country">Brazil</div>
-                            <div class="shop__item-price">10.73$</div>
-                        </div>
-                        <div class="shop__item">
-                            <img src="https://www.sciencenews.org/sites/default/files/main/articles/100315_coffee_opener_NEW_0.jpg" alt="coffee"></img>
-                            <div class="shop__item-title">
-                                Presto Coffee Beans 1kg
-                            </div>
-                            <div class="shop__item-country">Brazil</div>
-                            <div class="shop__item-price">15.99$</div>
-                        </div>
-                        <div class="shop__item">
-                            <img src="https://hhp-blog.s3.amazonaws.com/2018/07/iStock-673468996.jpg" alt="coffee"></img>
-                            <div class="shop__item-title">
-                                AROMISTICO Coffee 1kg
-                            </div>
-                            <div class="shop__item-country">Brazil</div>
-                            <div class="shop__item-price">6.99$</div>
-                        </div>
-                        <div class="shop__item">
-                            <img src="https://www.sciencenews.org/sites/default/files/main/articles/100315_coffee_opener_NEW_0.jpg" alt="coffee"></img>
-                            <div class="shop__item-title">
-                                Solimo Coffee Beans 2kg
-                            </div>
-                            <div class="shop__item-country">Brazil</div>
-                            <div class="shop__item-price">10.73$</div>
-                        </div>
-                        <div class="shop__item">
-                            <img src="https://i0.wp.com/www.healthline.com/hlcmsresource/images/AN_images/AN275-cup-of-coffee-732x549-Thumb.jpg?w=756" alt="coffee"></img>
-                            <div class="shop__item-title">
-                                Solimo Coffee Beans 2kg
-                            </div>
-                            <div class="shop__item-country">Brazil</div>
-                            <div class="shop__item-price">10.73$</div>
-                        </div>
-                        <div class="shop__item">
-                            <img src="https://www.sciencenews.org/sites/default/files/main/articles/100315_coffee_opener_NEW_0.jpg" alt="coffee"></img>
-                            <div class="shop__item-title">
-                                Solimo Coffee Beans 2kg
-                            </div>
-                            <div class="shop__item-country">Brazil</div>
-                            <div class="shop__item-price">10.73$</div>
-                        </div>
+                <div className="col-lg-10 offset-lg-1">
+                    <div className="shop__wrapper">
+                    {
+                       coffeeItems.map(coffeeItem => {
+                       return  <CoffeeListItem key={idGenerator()} coffeeItem={coffeeItem}/> 
+                   })
+                   }
                     </div>
                 </div>
             </Row>
@@ -62,3 +29,14 @@ export default class CoffeeList extends Component {
         )
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        coffeeItems: state.allCoffee
+    }
+}
+const mapDispatchToProps = {
+    allCoffeeLoaded
+};
+
+
+export default WithCoffeeService()(connect(mapStateToProps, mapDispatchToProps)(CoffeeList));

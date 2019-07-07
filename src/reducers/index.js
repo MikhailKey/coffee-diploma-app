@@ -1,8 +1,7 @@
 
 const initialState = {
-    bestSellers: [
-        
-    ]
+    bestSellers: [],
+    allCoffee: []
 }
 
 const reducer = (state = initialState, action) => {
@@ -11,8 +10,12 @@ const reducer = (state = initialState, action) => {
             return {
                 bestSellers: action.payload    
             };
-            default:
-                return state;
+        case 'ALL_COFFEE_LOADED':
+            return {
+                allCoffee: action.payload
+            }
+        default:
+            return state;
     }
 }
 
