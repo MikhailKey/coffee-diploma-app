@@ -3,7 +3,7 @@ import {Row} from 'reactstrap';
 import OurBestItem from '../ourBestItem';
 import {connect} from 'react-redux';
 import WithCoffeeService from '../hoc';
-import {bestSellersLoaded, bestSellersRequested, bestSellersError, bestItemSelected} from '../../actions';
+import {bestSellersLoaded, bestSellersRequested, bestSellersError, bestItemSelected, allCoffeeLoaded, allCoffeeError} from '../../actions';
 import Spinner from '../spinner';
 import ErrorMessage from '../errorMessage'
 import {Link} from 'react-router-dom';
@@ -14,6 +14,9 @@ class OurBest extends Component {
         CoffeeService.getBestSellers()
         .then(res => this.props.bestSellersLoaded(res)) 
         .catch(res => this.props.bestSellersError(res));
+        CoffeeService.getAllCoffee()
+        .then(res => this.props.allCoffeeLoaded(res))
+        .catch(res => this.props.allCoffeeError(res));
     }
     render() {
         const {coffeeBestItems, loading, error} = this.props;
@@ -49,7 +52,9 @@ const mapDispatchToProps = {
     bestSellersLoaded,
     bestSellersRequested,
     bestSellersError,
-    bestItemSelected
+    bestItemSelected,
+    allCoffeeLoaded,
+    allCoffeeError
 };
 
 
