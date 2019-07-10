@@ -18,7 +18,7 @@ export default class CoffeePage extends Component {
                             <img className="shop__girl" src={CoffeeGirl} alt="girl"></img>
                         </div>
                         <div className="col-lg-4">
-                            <div className="title">About our beans</div>
+                            <div className="title">About our goods</div>
                             <img className="beanslogo" src={BeansLogoDark} alt="Beans logo"></img>
                             <div className="shop__text">
                                     Extremity sweetness difficult behaviour he of. On disposal of as landlord horrible.

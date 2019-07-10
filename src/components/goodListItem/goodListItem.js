@@ -1,7 +1,7 @@
 import React from 'react';
 
-const CoffeeListItem = ({coffeeItem}) => {
-    const {name, country, url, price} = coffeeItem;
+const GoodListItem = ({goodItem}) => {
+    const {name, country, url, price} = goodItem;
     return (
         <div className="shop__item">
             <img src={url} alt={name}></img>
@@ -14,4 +14,4 @@ const CoffeeListItem = ({coffeeItem}) => {
     )
 }
 
-export default CoffeeListItem;
+export default GoodListItem;

@@ -16,11 +16,16 @@ export default class CoffeeService {
         return await this.getResourse('/coffee/')
       };
     getAllGoods = async () => {
-        const res = await this.getResource('/goods');
-        return res;
+      return await this.getResourse('/goods/')
       };
   
     } 
     
-   
-  
+   /*
+    async getBestSellers () {
+      return await this.getResource('/bestsellers/') 
+    };
+    async getAllCoffee () {
+      return await this.getResource('/coffee/') 
+    }; 
+    */

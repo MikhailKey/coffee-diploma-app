@@ -1,5 +1,5 @@
 import React from 'react';
-import {MainPage, CoffeePage, PleasurePage} from '../pages';
+import {MainPage, CoffeePage, ItemPage, PleasurePage} from '../pages';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Footer from '../footer';
 
@@ -13,7 +13,8 @@ const App = () => {
                 <Switch>
                 <Route path='/' exact component={MainPage}/>
                 <Route path='/coffee/' exact component={CoffeePage}/>
-                <Route path='/pleasure/' exact component={PleasurePage}/>
+                <Route path='/coffee/4' exact component={ItemPage}/>
+                <Route path='/pleasure' exact component={PleasurePage}/>
                 </Switch>
                 <Footer/>
             </Router>

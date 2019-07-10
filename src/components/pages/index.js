@@ -1,11 +1,14 @@
 import MainPage from './mainPage';
 import CoffeeHeader from './coffeeHeader';
+import GoodHeader from './goodHeader';
 import CoffeePage from './coffeePage';
-import PleasurePage from './pleasurePage';
+import ItemPage from './itemPage';
+import PleasurePage from './pleasurePage'
 export {
     MainPage,
     CoffeePage,
     CoffeeHeader,
-    PleasurePage
-
+    ItemPage,
+    PleasurePage,
+    GoodHeader
 };

@@ -1,23 +1,23 @@
 import React, {Component} from 'react';
 import {Row} from 'reactstrap';
-import CoffeeListItem from '../coffeeListItem';
+import GoodListItem from '../goodListItem';
 import {connect} from 'react-redux';
 import WithCoffeeService from '../hoc';
-import {allCoffeeLoaded, allCoffeeRequested, allCoffeeError} from '../../actions';
+import {allGoodsLoaded, allGoodsRequested, allGoodsError} from '../../actions';
 import idGenerator from 'react-id-generator';
 import Spinner from '../spinner';
 import ErrorMessage from '../errorMessage';
-import {Link} from 'react-router-dom';
-class CoffeeList extends Component {
+
+class GoodList extends Component {
     componentDidMount() {
-        this.props.allCoffeeRequested();
+        this.props.allGoodsRequested();
         const {CoffeeService} = this.props;
-        CoffeeService.getAllCoffee()
-        .then(res => this.props.allCoffeeLoaded(res))
-        .catch(res => this.props.allCoffeeError(res));
+        CoffeeService.getAllGoods()
+        .then(res => this.props.allGoodsLoaded(res))
+        .catch(res => this.props.allGoodsError(res));
     }
     render() {
-        const {coffeeItems, loading, error} = this.props;
+        const {goodsItems, loading, error} = this.props;
         if (error) {return <ErrorMessage/>}
         if (loading) {
             return <Spinner/>
@@ -27,8 +27,8 @@ class CoffeeList extends Component {
                 <div className="col-lg-10 offset-lg-1">
                     <div className="shop__wrapper">
                     {
-                       coffeeItems.map(coffeeItem => {
-                       return <Link key={idGenerator()} to={`/coffee/`} ><CoffeeListItem  coffeeItem={coffeeItem}/></Link>
+                       goodsItems.map(goodItem => {
+                       return <GoodListItem  key={idGenerator()} goodItem={goodItem}/>
                    })
                    }
                     </div>
@@ -40,16 +40,16 @@ class CoffeeList extends Component {
 }
 const mapStateToProps = (state) => {
     return {
-        coffeeItems: state.allCoffee,
+        goodsItems: state.allGoods,
         loading: state.loading,
         error: state.error,
     }
 }
 const mapDispatchToProps = {
-    allCoffeeLoaded,
-    allCoffeeRequested,
-    allCoffeeError
+    allGoodsLoaded,
+    allGoodsRequested,
+    allGoodsError
 };
 
 
-export default WithCoffeeService()(connect(mapStateToProps, mapDispatchToProps)(CoffeeList));
+export default WithCoffeeService()(connect(mapStateToProps, mapDispatchToProps)(GoodList));
