@@ -14,6 +14,10 @@ class CoffeeItemInfo extends Component {
                                 <div className="title">About it</div>
                                 <img className="beanslogo" src={BeansLogoDark} alt="Beans logo"></img>
                                 <div className="shop__point">
+                                <span>Name: </span>
+                                    {name} 
+                                </div>
+                                <div className="shop__point">
                                     <span>Country: </span>
                                     {country}
                                 </div>
