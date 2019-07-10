@@ -13,8 +13,8 @@ const App = () => {
                 <Switch>
                 <Route path='/' exact component={MainPage}/>
                 <Route path='/coffee/' exact component={CoffeePage}/>
-                <Route path='/coffee/4' exact component={ItemPage}/>
-                <Route path='/pleasure' exact component={PleasurePage}/>
+                <Route path='/coffee/item/' exact component={ItemPage}/>
+                <Route path='/pleasure/' exact component={PleasurePage}/>
                 </Switch>
                 <Footer/>
             </Router>

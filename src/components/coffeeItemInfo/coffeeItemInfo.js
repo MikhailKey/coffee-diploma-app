@@ -1,6 +1,7 @@
 import React from 'react';
 import BeansLogoDark from '../../logo/Beans_logo_dark.svg';
 import CoffeeItem from '../../img/coffee_item.jpg';
+import {Link} from 'react-router-dom';
 
 const CoffeeItemInfo = () => {
     return (
@@ -24,6 +25,7 @@ const CoffeeItemInfo = () => {
                                     <span>Price: </span>
                                     <span className="shop__point-price">16.99$</span>
                                 </div>
+                                <Link to="/coffee"><button className="shop__filter-btn">Back</button></Link>
                             </div>
         </>
     )

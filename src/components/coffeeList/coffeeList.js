@@ -28,7 +28,7 @@ class CoffeeList extends Component {
                     <div className="shop__wrapper">
                     {
                        coffeeItems.map(coffeeItem => {
-                       return <Link key={idGenerator()} to={`/coffee/`} ><CoffeeListItem  coffeeItem={coffeeItem}/></Link>
+                       return <Link key={idGenerator()} to={`/coffee/item`} ><CoffeeListItem  coffeeItem={coffeeItem}/></Link>
                    })
                    }
                     </div>
