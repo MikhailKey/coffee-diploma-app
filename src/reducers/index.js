@@ -2,6 +2,7 @@ const initialState = {
     bestSellers: [],
     allCoffee: [],
     allGoods: [],
+    filterItems: [],
     loading: true,
     error: false
 }
@@ -71,6 +72,14 @@ const reducer = (state = initialState, action) => {
                 allGoods: state.allGoods,
 
             }   
+        case 'FIND_ITEMS': 
+            const searchValue = action.search;
+            console.log(state.allCoffee);
+            const items = action.payload.filter(item => item.name.toLowerCase().includes(searchValue));
+            return {
+                ...state,
+                filterItems: items
+            };
         default:
             return state;
     }

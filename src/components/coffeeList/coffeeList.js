@@ -17,20 +17,28 @@ class CoffeeList extends Component {
         .catch(res => this.props.allCoffeeError(res));
     }
     render() {
-        const {coffeeItems, loading, error} = this.props;
+        const {filterItems, coffeeItems, loading, error} = this.props;
+
+        let items = {};
+        if (filterItems.length === 0) {
+            items = coffeeItems.map(coffeeItem => {
+                return <Link key={idGenerator()} to={`/coffee/item`} ><CoffeeListItem  coffeeItem={coffeeItem}/></Link>
+        })
+        } else {
+            items = filterItems.map(coffeeItem => {
+                return <Link key={idGenerator()} to={`/coffee/item`} ><CoffeeListItem  coffeeItem={coffeeItem}/></Link>
+        })
+        }
         if (error) {return <ErrorMessage/>}
         if (loading) {
             return <Spinner/>
         }
+        const content = loading ? <Spinner/> : items;
         return(
             <Row>
                 <div className="col-lg-10 offset-lg-1">
                     <div className="shop__wrapper">
-                    {
-                       coffeeItems.map(coffeeItem => {
-                       return <Link key={idGenerator()} to={`/coffee/item`} ><CoffeeListItem  coffeeItem={coffeeItem}/></Link>
-                   })
-                   }
+                    {content}
                     </div>
                 </div>
             </Row>
@@ -40,6 +48,7 @@ class CoffeeList extends Component {
 }
 const mapStateToProps = (state) => {
     return {
+        filterItems: state.filterItems,
         coffeeItems: state.allCoffee,
         loading: state.loading,
         error: state.error,

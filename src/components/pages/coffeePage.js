@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import {Container, Row} from 'reactstrap';
 import './coffeepage.sass'; 
+import CoffeeSearch from '../coffeeSearch';
 import CoffeeFilter from '../coffeeFilter';
 import {CoffeeHeader} from '../pages'
 import BeansLogoDark from '../../logo/Beans_logo_dark.svg';
 import CoffeeGirl from '../../img/coffee_girl.jpg';
-
+import CoffeeList from '../coffeeList';
 export default class CoffeePage extends Component {
     render() {
         return (
@@ -32,7 +33,11 @@ export default class CoffeePage extends Component {
                         </div>
                     </Row>
                     <div className="line"></div>
+                    <Row>
+                    <CoffeeSearch/>
                     <CoffeeFilter/>
+                    </Row>
+                    <CoffeeList/>
                 </Container>
             </section>
             </>

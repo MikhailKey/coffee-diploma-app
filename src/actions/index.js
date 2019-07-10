@@ -53,6 +53,13 @@ const allGoodsError = (newGood) => {
         errorType: newGood,
     };
 };
+const findItems = (items, value) => {
+    return {
+        type: 'FIND_ITEMS',
+        payload: items,
+        search: value
+    }
+}
 export {
     bestSellersLoaded,
     allCoffeeLoaded,
@@ -62,5 +69,6 @@ export {
     allCoffeeError,
     allGoodsLoaded,
     allGoodsRequested,
-    allGoodsError
+    allGoodsError,
+    findItems
 };
