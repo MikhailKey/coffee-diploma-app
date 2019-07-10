@@ -38,7 +38,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = {
-    countryFiltered
+    countryFiltered,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CoffeeFilter);

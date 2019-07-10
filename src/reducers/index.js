@@ -6,7 +6,6 @@ const initialState = {
     loading: true,
     error: false,
     countryChosen: null,
-    pageNumber: 1,
 }
 
 const reducer = (state = initialState, action) => {
@@ -88,8 +87,7 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 filterItems: newItems.filter(newItem => {
                     return newItem.country === action.country;
-                }),
-                pageNumber: action.payload
+                })
             };
         default:
             return state;

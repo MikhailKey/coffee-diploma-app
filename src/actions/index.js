@@ -67,6 +67,7 @@ const countryFiltered = (country, allCoffee) => {
         payload: allCoffee,
     }
 }
+
 export {
     bestSellersLoaded,
     allCoffeeLoaded,
@@ -78,5 +79,5 @@ export {
     allGoodsRequested,
     allGoodsError,
     findItems,
-    countryFiltered
+    countryFiltered,
 };
