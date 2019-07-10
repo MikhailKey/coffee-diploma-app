@@ -3,8 +3,7 @@ import {Row} from 'reactstrap';
 import CoffeeListItem from '../coffeeListItem';
 import {connect} from 'react-redux';
 import WithCoffeeService from '../hoc';
-import {allCoffeeLoaded, allCoffeeRequested, allCoffeeError} from '../../actions';
-import idGenerator from 'react-id-generator';
+import {allCoffeeLoaded, allCoffeeRequested, allCoffeeError, itemSelected} from '../../actions';
 import Spinner from '../spinner';
 import ErrorMessage from '../errorMessage';
 import {Link} from 'react-router-dom';
@@ -22,11 +21,11 @@ class CoffeeList extends Component {
         let items = {};
         if (filterItems.length === 0) {
             items = coffeeItems.map(coffeeItem => {
-                return <Link key={idGenerator()} to={`/coffee/item`} ><CoffeeListItem  coffeeItem={coffeeItem}/></Link>
+                return <Link key={coffeeItem.name} to={`/coffee/${coffeeItem.name}`} onClick={() => this.props.itemSelected(coffeeItem)} ><CoffeeListItem  coffeeItem={coffeeItem}/></Link>
         })
         } else {
             items = filterItems.map(coffeeItem => {
-                return <Link key={idGenerator()} to={`/coffee/item`} ><CoffeeListItem  coffeeItem={coffeeItem}/></Link>
+                return <Link key={coffeeItem.name} to={`/coffee/${coffeeItem.name}`} ><CoffeeListItem  coffeeItem={coffeeItem}/></Link>
         })
         }
         if (error) {return <ErrorMessage/>}
@@ -57,7 +56,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
     allCoffeeLoaded,
     allCoffeeRequested,
-    allCoffeeError
+    allCoffeeError, 
+    itemSelected
 };
 
 

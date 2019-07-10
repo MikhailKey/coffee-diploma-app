@@ -67,7 +67,18 @@ const countryFiltered = (country, allCoffee) => {
         payload: allCoffee,
     }
 }
-
+const itemSelected = (coffeeItem) => {
+    return {
+        type: 'ITEM_SELECTED',
+        payload: coffeeItem,
+    }
+}
+const bestItemSelected = (itemName) => {
+    return {
+        type: 'BEST_ITEM_SELECTED',
+        payload: itemName,
+    }
+}
 export {
     bestSellersLoaded,
     allCoffeeLoaded,
@@ -80,4 +91,6 @@ export {
     allGoodsError,
     findItems,
     countryFiltered,
+    itemSelected,
+    bestItemSelected
 };

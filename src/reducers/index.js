@@ -3,9 +3,13 @@ const initialState = {
     allCoffee: [],
     allGoods: [],
     filterItems: [],
+    selectedItem: [],
     loading: true,
     error: false,
     countryChosen: null,
+    itemName: '',
+    bestItemName: '',
+
 }
 
 const reducer = (state = initialState, action) => {
@@ -88,6 +92,36 @@ const reducer = (state = initialState, action) => {
                 filterItems: newItems.filter(newItem => {
                     return newItem.country === action.country;
                 })
+            };
+        case 'ITEM_SELECTED':
+            const newItem = {
+                name: action.payload.name,
+                country: action.payload.country,
+                description: action.payload.description,
+                url: action.payload.url,
+                price: action.payload.price
+            }
+            console.log(newItem)
+            return {
+                ...state,
+                selectedItem: newItem,
+                itemName: newItem.name,
+
+            }
+        case 'BEST_ITEM_SELECTED':
+            const itemName = action.payload;
+            const exactItem = state.allCoffee.find(item => item.name === itemName)
+            const newBestItem = {
+                name: exactItem.name,
+                country: exactItem.country,
+                description: exactItem.description,
+                url: exactItem.url,
+                price: exactItem.price
+            }
+            return {
+                ...state,
+                selectedItem: newBestItem,
+                itemName: newBestItem.name,
             };
         default:
             return state;

@@ -1,19 +1,20 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {MainPage, CoffeePage, ItemPage, PleasurePage} from '../pages';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom';
 import Footer from '../footer';
+import {connect} from 'react-redux';
 
 import './style.sass';
 
-const App = () => {
-
+class App extends Component {
+    render() {
         return (
             <>
             <Router>
                 <Switch>
                 <Route path='/' exact component={MainPage}/>
                 <Route path='/coffee/' exact component={CoffeePage}/>
-                <Route path='/coffee/item/' exact component={ItemPage}/>
+                <Route path={`/coffee/${this.props.itemName}`} exact component={ItemPage}/>
                 <Route path='/pleasure/' exact component={PleasurePage}/>
                 </Switch>
                 <Footer/>
@@ -21,5 +22,12 @@ const App = () => {
             </>
         )
     }
+}
 
-export default App;
+const mapStateToProps = (state) => {
+    return {
+      itemName: state.itemName,
+    }
+  }
+  
+  export default connect(mapStateToProps)(App)

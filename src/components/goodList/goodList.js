@@ -4,7 +4,6 @@ import GoodListItem from '../goodListItem';
 import {connect} from 'react-redux';
 import WithCoffeeService from '../hoc';
 import {allGoodsLoaded, allGoodsRequested, allGoodsError} from '../../actions';
-import idGenerator from 'react-id-generator';
 import Spinner from '../spinner';
 import ErrorMessage from '../errorMessage';
 
@@ -28,7 +27,7 @@ class GoodList extends Component {
                     <div className="shop__wrapper">
                     {
                        goodsItems.map(goodItem => {
-                       return <GoodListItem  key={idGenerator()} goodItem={goodItem}/>
+                       return <GoodListItem  key={goodItem.name} goodItem={goodItem}/>
                    })
                    }
                     </div>

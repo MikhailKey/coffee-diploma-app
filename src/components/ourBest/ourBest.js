@@ -3,10 +3,10 @@ import {Row} from 'reactstrap';
 import OurBestItem from '../ourBestItem';
 import {connect} from 'react-redux';
 import WithCoffeeService from '../hoc';
-import {bestSellersLoaded, bestSellersRequested, bestSellersError} from '../../actions';
-import idGenerator from 'react-id-generator';
+import {bestSellersLoaded, bestSellersRequested, bestSellersError, bestItemSelected} from '../../actions';
 import Spinner from '../spinner';
 import ErrorMessage from '../errorMessage'
+import {Link} from 'react-router-dom';
 class OurBest extends Component {
     componentDidMount() {
         this.props.bestSellersRequested();
@@ -28,7 +28,7 @@ class OurBest extends Component {
                     {
                        
                         coffeeBestItems.map(coffeeBestItem => {
-                        return  <OurBestItem key={idGenerator()} coffeeBestItem={coffeeBestItem}/> 
+                        return  <Link key={coffeeBestItem.name} to={`/coffee/${coffeeBestItem.name}`} onClick={() => this.props.bestItemSelected(coffeeBestItem.name)} ><OurBestItem key={coffeeBestItem.name} coffeeBestItem={coffeeBestItem}/></Link>
                     })
                     }
                   
@@ -48,7 +48,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
     bestSellersLoaded,
     bestSellersRequested,
-    bestSellersError
+    bestSellersError,
+    bestItemSelected
 };
 
 
