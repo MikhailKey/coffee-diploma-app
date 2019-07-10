@@ -3,7 +3,7 @@ import {Row} from 'reactstrap';
 import CoffeeListItem from '../coffeeListItem';
 import {connect} from 'react-redux';
 import WithCoffeeService from '../hoc';
-import {allCoffeeLoaded, allCoffeeRequested, allCoffeeError} from '../../actions';
+import {allCoffeeLoaded, allCoffeeRequested, allCoffeeError, itemSelected} from '../../actions';
 import Spinner from '../spinner';
 import ErrorMessage from '../errorMessage';
 import {Link} from 'react-router-dom';
@@ -56,7 +56,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = {
     allCoffeeLoaded,
     allCoffeeRequested,
-    allCoffeeError,
+    allCoffeeError, 
+    itemSelected
 };
 
 
