@@ -4,7 +4,9 @@ const initialState = {
     allGoods: [],
     filterItems: [],
     loading: true,
-    error: false
+    error: false,
+    countryChosen: null,
+    pageNumber: 1,
 }
 
 const reducer = (state = initialState, action) => {
@@ -79,6 +81,15 @@ const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 filterItems: items
+            };
+        case 'COUNTRY_FILTERED':  
+            const newItems = action.payload;
+            return {
+                ...state,
+                filterItems: newItems.filter(newItem => {
+                    return newItem.country === action.country;
+                }),
+                pageNumber: action.payload
             };
         default:
             return state;

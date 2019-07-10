@@ -60,6 +60,13 @@ const findItems = (items, value) => {
         search: value
     }
 }
+const countryFiltered = (country, allCoffee) => {
+    return {
+        type: 'COUNTRY_FILTERED',
+        country: country,
+        payload: allCoffee,
+    }
+}
 export {
     bestSellersLoaded,
     allCoffeeLoaded,
@@ -70,5 +77,6 @@ export {
     allGoodsLoaded,
     allGoodsRequested,
     allGoodsError,
-    findItems
+    findItems,
+    countryFiltered
 };

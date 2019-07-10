@@ -1,7 +1,18 @@
 import React, {Component} from 'react';
-
-export default class CoffeeFilter extends Component {
+import {connect} from 'react-redux';
+import {countryFiltered} from '../../actions/';
+import idGenerator from 'react-id-generator';
+class CoffeeFilter extends Component {
     render() {
+        const {allCoffee} = this.props;
+        let countries = [];
+        for (let i = 0; i < allCoffee.length; i++) {
+            countries.push(allCoffee[i].country);
+        }
+        countries = [...new Set(countries)];
+        const items = countries.map((item) => {
+            return <button key={idGenerator()} onClick={() => this.props.countryFiltered(item, allCoffee)} className="shop__filter-btn">{item}</button>
+        })
         return(
             <>
       
@@ -11,9 +22,7 @@ export default class CoffeeFilter extends Component {
                             Or filter
                         </div>
                         <div className="shop__filter-group">
-                            <button className="shop__filter-btn">Brazil</button>
-                            <button className="shop__filter-btn">Kenya</button>
-                            <button className="shop__filter-btn">Columbia</button>
+                            {items}
                         </div>
                     </div>
                 </div>     
@@ -21,3 +30,15 @@ export default class CoffeeFilter extends Component {
         )
     }
 }
+const mapStateToProps = (state) => {
+    return {
+        allCoffee: state.allCoffee,
+        countryChosen: state.countryChosen
+    }
+}
+
+const mapDispatchToProps = {
+    countryFiltered
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(CoffeeFilter);
