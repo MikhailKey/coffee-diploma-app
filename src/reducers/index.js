@@ -80,7 +80,7 @@ const reducer = (state = initialState, action) => {
         case 'FIND_ITEMS': 
             const searchValue = action.search;
             console.log(state.allCoffee);
-            const items = action.payload.filter(item => item.name.toLowerCase().includes(searchValue));
+            const items = action.payload.filter(item => item.name.toLowerCase().includes(searchValue.toLowerCase()));
             return {
                 ...state,
                 filterItems: items
