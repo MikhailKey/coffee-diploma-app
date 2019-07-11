@@ -38,7 +38,7 @@ class ItemPage extends Component {
                                 </div>
                                 <div className="shop__point">
                                     <span>Price: </span>
-                                    <span className="shop__point-price">{price}$</span>
+                                    <span className="shop__point-price">{price}</span>
                                 </div>
                                 <Link to="/coffee"><button className="shop__filter-btn">Back</button></Link>
                             </div>

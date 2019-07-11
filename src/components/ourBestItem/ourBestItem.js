@@ -10,7 +10,7 @@ const OurBestItem = ({coffeeBestItem}) => {
                            {name} 
                         </div>
                         
-                        <div className="best__item-price">{price}$</div>
+                        <div className="best__item-price">{price}</div>
                     </div>
         </>
     )
